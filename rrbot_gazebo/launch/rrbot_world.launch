@@ -8,6 +8,8 @@
   <arg name="debug" default="false"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <!-- 使用安装时自带的launch文件来启动Gazebo -->
+  <!-- 具体参见https://classic.gazebosim.org/tutorials?tut=ros_roslaunch -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find rrbot_gazebo)/worlds/rrbot.world"/>
     <arg name="debug" value="$(arg debug)" />
@@ -18,10 +20,14 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
+  <!-- 读取xacro，将机器人的信息加载到参数服务器中 -->
   <param name="robot_description"
     command="$(find xacro)/xacro --inorder '$(find rrbot_description)/urdf/rrbot.xacro'" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <!-- 启动Gazebo内部的节点,其作用是 -->
+  <!-- 从参数服务器中读取机器人信息(即robot_description这个参数的数据) -->
+  <!-- 根据这些信息,在gazebo仿真中生成机器人 -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
     args="-urdf -model rrbot -param robot_description"/>
 
