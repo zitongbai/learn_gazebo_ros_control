@@ -16,6 +16,8 @@
   <xacro:include filename="$(find rrbot_description)/urdf/rrbot.gazebo" />
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find rrbot_description)/urdf/materials.xacro" />
+  <!-- Import IMU -->
+  <xacro:include filename="$(find rrbot_description)/urdf/imu.xacro" />
 
   <!-- Used for fixing robot to Gazebo 'base_link' -->
   <link name="world"/>
@@ -86,6 +88,9 @@
 	  izz="${mass / 12.0 * (width*width + width*width)}"/>
     </inertial>
   </link>
+
+  <!-- IMU -->
+  <xacro:IMU connected_to="link2" imu_name="imu" xyz="0 0 0" rpy="0 0 0"/>
 
   <joint name="joint2" type="continuous">
     <parent link="link2"/>

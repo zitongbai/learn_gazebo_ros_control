@@ -1,0 +1,9 @@
+<library path="lib/librrbot_hw_sim">
+    <class
+            name="rrbot_gazebo/RRBotHWSim" type="RRBotHWSim"
+            base_class_type="gazebo_ros_control::RobotHWSim">
+        <description>
+            RRbot hardware interface for simulation, with an imu interface added. Most inherited from DefaultRobotHWSim
+        </description>
+    </class>
+</library>

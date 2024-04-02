@@ -1,4 +1,5 @@
-<package>
+<?xml version="1.0"?>
+<package format="2">
   <name>rrbot_gazebo</name>
   <version>0.1.0</version>
   <description>rrbot_gazebo</description>
@@ -14,13 +15,19 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <run_depend>gazebo_plugins</run_depend>
-  <run_depend>gazebo_ros</run_depend>
-  <run_depend>gazebo_ros_control</run_depend>
-  <run_depend>rrbot_control</run_depend>
-  <run_depend>rrbot_description</run_depend>
-  <run_depend>xacro</run_depend>
+  <depend>roscpp</depend>
+  <depend>gazebo_dev</depend>
+
+  <depend>gazebo_plugins</depend>
+  <depend>gazebo_ros</depend>
+  <depend>gazebo_ros_control</depend>
+  <depend>rrbot_control</depend>
+  <depend>rrbot_description</depend>
+  <depend>xacro</depend>
+
 
   <export>
+    <gazebo_ros_control plugin="${prefix}/rrbot_hw_sim_plugins.xml"/>
+    <gazebo_ros gazebo_model_path="${prefix}"/>
   </export>
 </package>

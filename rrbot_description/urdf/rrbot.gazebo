@@ -2,10 +2,17 @@
 <robot>
 
   <!-- ros_control plugin -->
-  <gazebo>
+  <!-- <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <robotNamespace>/rrbot</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo> -->
+
+  <gazebo>
+    <plugin name="rrbot_gazebo_ros_control" filename="librrbot_hw_sim.so">
+      <robotNamespace>/rrbot</robotNamespace>
+      <robotSimType>rrbot_gazebo/RRBotHWSim</robotSimType>
     </plugin>
   </gazebo>
 
