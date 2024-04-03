@@ -1,0 +1,10 @@
+rrbot:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # angle controller
+  rrbot_angle_controller:
+    type: rrbot/rrbot_angle_controller
+    

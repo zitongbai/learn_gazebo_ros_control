@@ -1,0 +1,10 @@
+<library path="lib/librrbot_angle_controller">
+
+    <class name="rrbot/rrbot_angle_controller" type="RRBotAngleController"
+           base_class_type="controller_interface::ControllerBase">
+        <description>
+            The rrbot angle controller
+        </description>
+    </class>
+
+</library>
