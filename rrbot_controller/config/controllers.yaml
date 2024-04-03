@@ -7,4 +7,5 @@ rrbot:
   # angle controller
   rrbot_angle_controller:
     type: rrbot/rrbot_angle_controller
+    pid: {p: 0.5, i: 0.0, d: 10.0}
     

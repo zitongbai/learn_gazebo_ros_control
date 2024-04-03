@@ -16,6 +16,8 @@
 #include <hardware_interface/imu_sensor_interface.h>
 #include <pluginlib/class_list_macros.h>
 
+#include <control_toolbox/pid.h>
+
 class RRBotAngleController : public controller_interface::MultiInterfaceController<hardware_interface::EffortJointInterface, 
                                                                                 hardware_interface::ImuSensorInterface>
 {
@@ -28,6 +30,8 @@ public:
 private:
     std::vector<hardware_interface::JointHandle> joint_handles_;
     hardware_interface::ImuSensorHandle imu_handle_;
+
+    control_toolbox::Pid pid_controller_;
 };
 
 
